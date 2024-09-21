@@ -1,2 +1,2 @@
-# README.Magic
+# READMEmagic
 README Generator
