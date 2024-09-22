@@ -34,7 +34,7 @@ const questions = [
     {
       type: 'input',
       name: 'tests',
-      message: 'Provide test instructions:',
+      message: 'Have you tested the project?',
     },
     {
       type: 'list',
@@ -66,7 +66,7 @@ fs.writeFile(fileName,data, (err) => {
 }
 // TODO: Create a function to initialize app
 function init() {
-    
+
     inquirer.prompt (questions).then((responses) => {
         const markdown = generateMarkdown(responses);
         writeToFile('README.md',markdown);
