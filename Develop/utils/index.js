@@ -9,48 +9,48 @@ const questions = [
     {
       type: 'input',
       name: 'title',
-      message: 'What is the title of your project?',
+      message: '\u2665 What is the title of your project?',
     },
     {
       type: 'input',
       name: 'description',
-      message: 'How would you describe this project?/What does your project do?',
+      message: '\u2665 How would you describe this project?/What does your project do?',
     },
     {
       type: 'input',
       name: 'installation',
-      message: 'How can someone install your project? ',
+      message: '\u2665 How can someone install your project? ',
     },
     {
       type: 'input',
       name: 'usage',
-      message: 'How would someone use this project? ',
+      message: '\u2665 How would someone use this project? ',
     },
     {
       type: 'input',
       name: 'contributing',
-      message: 'Can others contribute to your project?',
+      message: '\u2665 Can others contribute to your project?',
     },
     {
       type: 'input',
       name: 'tests',
-      message: 'Have you tested the project?',
+      message: '\u2665 Have you tested the project?',
     },
     {
       type: 'list',
       name: 'license',
-      message: 'What license are you using for this project?',
+      message: '\u2665 What license are you using for this project?',
       choices: ['MIT', 'GPLv3', 'Apache 2.0', 'BSD 3-Clause', 'None'],
     },
     {
       type: 'input',
       name: 'github',
-      message: 'What is your GitHub username?',
+      message: '\u2665 What is your GitHub username?',
     },
     {
       type: 'input',
       name: 'email',
-      message: 'What is your email address?',
+      message: '\u2665 What is your email address?',
     }
   ];
 
@@ -60,7 +60,7 @@ fs.writeFile(fileName,data, (err) => {
     if (err) {
         console.log(err);
     }else{
-        console.log('Bingo! Wrote to README.md');
+        console.log('\u2618 Done! \u2618 Wrote to README.md');
     }
   });
 }
