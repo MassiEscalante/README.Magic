@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "colors": "^1.4.0",
     "inquirer": "^11.0.2"
   }
 }
