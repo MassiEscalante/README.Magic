@@ -71,7 +71,7 @@ function init() {
         const markdown = generateMarkdown(responses);
         writeToFile('README.md',markdown);
     });
-}
+} 
 
 // Function call to initialize app
 init();
