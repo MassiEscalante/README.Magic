@@ -24,12 +24,12 @@ const questions = [
     {
       type: 'input',
       name: 'usage',
-      message: '\u2665 How would someone use this project? ',
+      message: '\u2665 What problems does it solve? ',
     },
     {
       type: 'input',
       name: 'contributing',
-      message: '\u2665 Can others contribute to your project?',
+      message: '\u2665 Were there any contributors?',
     },
     {
       type: 'input',
