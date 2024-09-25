@@ -56,22 +56,34 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-fs.writeFile(fileName,data, (err) => {
-    if (err) {
-        console.log('Error writing to file'.bgRedred);
-    }else{
-        console.log('\u2618 Done! \u2618 Wrote to README.md'.bold.green);
+  try {
+    
+    if (fs.existsSync(fileName)) {
+      fs.unlinkSync(fileName);
     }
-  });
+    fs.writeFile(fileName, data, (err) => {
+      if (err) {
+        console.log('Error writing to file'.bgRed); 
+      } else {
+        console.log('\u2618 Done! \u2618 Wrote to README.md'.bold.green);
+      }
+    });
+  } catch (error) {
+    console.error('Error during file handling:', error);
+  }
 }
 // TODO: Create a function to initialize app
 function init() {
 
-    inquirer.prompt (questions).then((responses) => {
-        const markdown = generateMarkdown(responses);
-        writeToFile('README.md',markdown);
-    });
-} 
+  inquirer.prompt(questions).then((responses) => {
+    const markdown = generateMarkdown(responses);
 
+    console.log("Responses: ", responses);      
+    console.log("Generated Markdown: ", markdown); 
+
+    writeToFile('README.md', markdown); 
+  });
+}
 // Function call to initialize app
+
 init();
