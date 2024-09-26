@@ -56,34 +56,32 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-  try {
-    
-    if (fs.existsSync(fileName)) {
-      fs.unlinkSync(fileName);
+  fs.writeFile(fileName, data, (err) => {
+    if (err) {
+      // FIX: Adjust the console log to avoid syntax errors
+      console.log('Error writing to file'.bgRed.red); // ADDED: Correct color method usage
+    } else {
+      console.log('\u2618 Done! \u2618 Wrote to README.md'.bold.green);
     }
-    fs.writeFile(fileName, data, (err) => {
-      if (err) {
-        console.log('Error writing to file'.bgRed); 
-      } else {
-        console.log('\u2618 Done! \u2618 Wrote to README.md'.bold.green);
-      }
-    });
-  } catch (error) {
-    console.error('Error during file handling:', error);
-  }
+  });
 }
+
 // TODO: Create a function to initialize app
 function init() {
+  // FIX: Clear previous file before writing a new one (for fresh prompts)
+  fs.writeFileSync('README.md', '', (err) => {
+    if (err) {
+      console.log('Error clearing the README.md file'.bgRed.red); 
+    }
+  });
 
   inquirer.prompt(questions).then((responses) => {
     const markdown = generateMarkdown(responses);
-
-    console.log("Responses: ", responses);      
-    console.log("Generated Markdown: ", markdown); 
-
-    writeToFile('README.md', markdown); 
+    
+    // FIX: Use writeFile after receiving user input
+    writeToFile('README.md', markdown);
   });
-}
-// Function call to initialize app
+} 
 
+// Function call to initialize app
 init();
